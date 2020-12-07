@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Employee Dashboard</title>
+</head>
+<body style="background: -webkit-linear-gradient(right, #C5FDBD, #5cb85c);
+  background: -moz-linear-gradient(right, #C5FDBD, #5cb85c);
+  background: -o-linear-gradient(right, #C5FDBD, #5cb85c);
+  background: linear-gradient(to left, #C5FDBD, #5cb85c);">
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <a class="navbar-brand" style="font-weight:bold">ADN</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="{% url 'emp_dash' %}">Dashboard</a>
+            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+            <a class="nav-item nav-link" href="#">Attendance</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Application
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'leave' %}">Request for leave</a>
+                    <a class="dropdown-item" href="{% url 'convey' %}">Request for conveyance expenses</a>
+                    <a class="dropdown-item" href="{% url 'hol_ovr'%}">Request for holiday overtime</a>
+                    <a class="dropdown-item" href="{% url 'reg_ovr'%}">Request for regular overtime</a>
+                </div>
+            </li>
+            <a class="nav-item nav-link" href="{% url 'pending' %}">Pending Application</a>
+            <div class="pull-right">
+                <ul class="nav navbar-nav pull-right">
+                    <li>
+                        <a href="{% url 'logout' %}"><button type="submit" class="btn navbar-btn btn-danger" name="logout" id="logout"
+                                value="Log Out">Log Out
+                        </button></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+<div class="section">
+    <div class="row" style="margin-top: 5%; background: -webkit-linear-gradient(right, #C5FDBD, #5cb85c);">
+        <div class="col" style="height:100%; background-color:#ADF8A2; margin-right:10px; margin-bottom:10px">
+            <h5>Notice Board</h5>
+            <hr>
+            <div class="container" style="height:181.25px; width: 100%; background-color:white; overflow:auto;">
+                <marquee class="moving-body" behavior="scroll" direction="up" scrollamount="10"
+                         onmouseover="this.setAttribute('scrollamount',0,0); this.stop();"
+                         onmouseout="this.setAttribute('scrollamount',0,0); this.start();">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores corporis distinctio ducimus
+                    eligendi eum impedit in Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae earum eius
+                    itaque minus, nostrum quam repudiandae tenetur! Amet aperiam, beatae eligendi enim impedit inventore
+                    ipsum, iste laudantium qui quia suscipit.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dolore earum ex facere libero
+                    minus nam necessitatibus neque quia velit.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad ducimus ipsa labore modi molestiae
+                    qui veritatis voluptatibus? Accusantium alias animi, deleniti esse maiores necessitatibus placeat
+                    ratione repellat totam ullam vel, vitae voluptatem. Ab aliquam aliquid amet aperiam autem, debitis,
+                    error necessitatibus optio porro quibusdam quod tenetur veritatis vitae voluptas!
+                </marquee>
+            </div>
+        </div>
+        <div class="col" style="height:100%; background-color:#ADF8A2">
+            <h5>Events</h5>
+            <hr>
+            <div class="container" style="height:181.25px; width: 100%; background-color:white; overflow:auto;">
+            </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="col" style="height:100%; margin-right:10px; background-color:#ADF8A2">
+            <h5>Links</h5>
+            <hr>
+            <div class="container" style="height:181.25px; width: 100%; background-color:white; overflow:auto;">
+            </div>
+        </div>
+        <div class="col" style="height:100%; background-color:#ADF8A2">
+            <h5>Open for fiddling</h5>
+            <hr>
+            <div class="container" style="height:181.25px; width: 100%; background-color:white; overflow:auto;">
+            </div>
+        </div>
+        <style>
+          .col {
+          height: 300px;
+          padding: 2%;
+          }
+          .section {
+          margin:5%;
+          }
+          body {
+          background-color: black;
+          }
+          .row {
+          }
+
+
+        </style>
+    </div>
+</div>
+</body>
+</html>

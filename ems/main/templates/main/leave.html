@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Application for leave</title>
+</head>
+<body style="background: -webkit-linear-gradient(right, #C5FDBD, #5cb85c);
+  background: -moz-linear-gradient(right, #C5FDBD, #5cb85c);
+  background: -o-linear-gradient(right, #C5FDBD, #5cb85c);
+  background: linear-gradient(to left, #C5FDBD, #5cb85c);">
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <a class="navbar-brand" style="font-weight:bold">ADN</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="{% url 'emp_dash' %}">Dashboard</a>
+            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+            <a class="nav-item nav-link" href="#">Attendance</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Application
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'leave' %}">Request for leave</a>
+                    <a class="dropdown-item" href="{% url 'convey' %}">Request for conveyance expenses</a>
+                    <a class="dropdown-item" href="{% url 'hol_ovr'%}">Request for holiday overtime</a>
+                    <a class="dropdown-item" href="{% url 'reg_ovr'%}">Request for regular overtime</a>
+                </div>
+            </li>
+            <a class="nav-item nav-link" href="{% url 'pending' %}">Pending Application</a>
+
+        </div>
+    </div>
+</nav>
+</body>
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded"
+     style="margin-top:5%; padding:2%; width:100%; height:125%; background-color:white">
+    <form action="" method="post">
+        <h2>Application for leave</h2>
+        <hr>
+        <div class="form-group">
+        <p>Select type of leave:</p>
+         <select name='leave_type'>
+                <option selected disabled>Select type of leave</option>
+                <option>Annual</option>
+                <option>Medical</option>
+                <option>Personal</option>
+         </select>
+        </div>
+        <br>
+        <label>Description of cause: </label>
+        <br>
+        <input type="text" id="desc" name="description" placeholder="State reason for leave"
+               style="width:100%; height:200px">
+        <br>
+        <br>
+        <label>From:</label>
+        <input type="date" id="from_date" name="from">
+        <label>To:</label>
+        <input type="date" id="to_date" name="to">
+        <br>
+        <br>
+        <button type="submit" class="btn btn-dark">Submit Application</button>
+
+    </form>
+</div>
+</html>
